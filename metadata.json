@@ -1,0 +1,6 @@
+{
+  "name": "Eka Yulita - Portofolio Mahasiswa Sistem Informasi",
+  "description": "Website portofolio pribadi Eka Yulita, mahasiswa semester 1 Sistem Informasi di Universitas Komputama (UNIKMA) Cilacap.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
