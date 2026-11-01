@@ -7,10 +7,9 @@ export const PERSONAL_INFO = {
   studyProgram: 'Sistem Informasi (S1)',
   location: 'Cilacap, Jawa Tengah, Indonesia',
   email: 'ekayulita756@gmail.com',
-  whatsappNumber: '6287893275399',
-  whatsappDisplay: '+62 878-9327-5399',
   linkedinUrl: 'https://linkedin.com/in/eka-yulita-unikma',
-  avatarImage: '/src/assets/images/avatar_student_portrait_1792586967175.jpg',
+  avatarImage: '/assets/aistudio/IMG-20261025-WA0026_7ae7c5bd.jpg',
+  motto: "go with the flow but don't forget your goal",
   heroTagline: 'Halo, saya Eka Yulita',
   heroSubheadline:
     'Mahasiswa Sistem Informasi yang sedang belajar, berkembang, dan mengeksplorasi dunia teknologi digital.',

@@ -49,7 +49,7 @@ export default function Projects() {
           </div>
 
           {/* Interactive filter tabs (horizontal scrolling on mobile) */}
-          <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto max-w-full">
+          <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar max-w-full">
             <button
               type="button"
               onClick={() => setActiveCategory('all')}
@@ -106,7 +106,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}

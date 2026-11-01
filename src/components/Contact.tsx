@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, MessageCircle, Linkedin, MapPin, Send, CheckCircle2, AlertCircle, Trash2, ArrowUpRight } from 'lucide-react';
+import { Mail, Linkedin, MapPin, Send, CheckCircle2, AlertCircle, Trash2, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ContactSubmission } from '../types';
 
@@ -94,10 +94,6 @@ export default function Contact() {
     localStorage.removeItem('ekayulita_portfolio_messages');
   };
 
-  const whatsappUrl = `https://wa.me/${PERSONAL_INFO.whatsappNumber}?text=${encodeURIComponent(
-    'Halo Eka Yulita, saya melihat website portofolio Anda dan ingin berdiskusi mengenai...'
-  )}`;
-
   return (
     <section id="kontak" className="py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,29 +135,6 @@ export default function Contact() {
                   </div>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
-              </a>
-
-              {/* WhatsApp link */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group p-4 bg-white border border-slate-200 rounded-xl hover:border-emerald-300 hover:shadow-sm transition-all flex items-center justify-between"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wide">
-                      WhatsApp Chat
-                    </div>
-                    <div className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                      {PERSONAL_INFO.whatsappDisplay}
-                    </div>
-                  </div>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" />
               </a>
 
               {/* LinkedIn placeholder link */}
@@ -256,7 +229,7 @@ export default function Contact() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     placeholder="Contoh: Rian Pratama"
-                    className={`w-full px-4 py-2.5 text-sm bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full px-4 py-2.5 text-base sm:text-sm bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all ${
                       errors.name
                         ? 'border-rose-300 focus:ring-rose-200 bg-rose-50/20'
                         : 'border-slate-300 focus:border-sky-500 focus:ring-sky-200'
@@ -286,7 +259,7 @@ export default function Contact() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     placeholder="nama@domain.com"
-                    className={`w-full px-4 py-2.5 text-sm bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full px-4 py-2.5 text-base sm:text-sm bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all ${
                       errors.email
                         ? 'border-rose-300 focus:ring-rose-200 bg-rose-50/20'
                         : 'border-slate-300 focus:border-sky-500 focus:ring-sky-200'
@@ -316,7 +289,7 @@ export default function Contact() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     placeholder="Tuliskan pesan, pertanyaan, atau tanggapan Anda..."
-                    className={`w-full px-4 py-2.5 text-sm bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all resize-y ${
+                    className={`w-full px-4 py-2.5 text-base sm:text-sm bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all resize-y ${
                       errors.message
                         ? 'border-rose-300 focus:ring-rose-200 bg-rose-50/20'
                         : 'border-slate-300 focus:border-sky-500 focus:ring-sky-200'

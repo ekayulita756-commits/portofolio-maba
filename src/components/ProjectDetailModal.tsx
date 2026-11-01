@@ -95,7 +95,7 @@ export default function ProjectDetailModal({
         </div>
 
         {/* Modal Content */}
-        <div className="p-6 sm:p-8 space-y-8">
+        <div className="p-4 sm:p-8 space-y-6 sm:space-y-8">
           {/* Project Title and Overview */}
           <div>
             <h2

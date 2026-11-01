@@ -3,6 +3,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Custom scrollbar for modern sleek aesthetic */
@@ -20,3 +21,13 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #0284c7;
 }
+
+/* Hide scrollbars for swipeable chip bars on mobile and tablet */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

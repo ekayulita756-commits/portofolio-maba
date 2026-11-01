@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { ArrowDown, Mail, GraduationCap, Upload, RotateCcw, Check, Sparkles, Compass } from 'lucide-react';
+import { ArrowDown, Mail, GraduationCap, Quote } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface HeroProps {
@@ -7,32 +6,6 @@ interface HeroProps {
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
-  const [profileImg, setProfileImg] = useState<string>(PERSONAL_INFO.avatarImage);
-  const [isCustomPhoto, setIsCustomPhoto] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          setProfileImg(event.target.result as string);
-          setIsCustomPhoto(true);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleResetPhoto = () => {
-    setProfileImg(PERSONAL_INFO.avatarImage);
-    setIsCustomPhoto(false);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
   return (
     <section
       id="beranda"
@@ -59,11 +32,11 @@ export default function Hero({ onNavigate }: HeroProps) {
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="md:col-span-7 flex flex-col items-start text-left">
             {/* Unboxed clean metadata kicker */}
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold tracking-wide text-sky-400 mb-4 bg-sky-950/40 border border-sky-800/40 px-3 py-1.5 rounded-full">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold tracking-wide text-sky-400 mb-4 bg-sky-950/40 border border-sky-800/40 px-3.5 py-1.5 rounded-full">
               <span>Information Systems Student</span>
               <span aria-hidden="true" className="text-sky-600">·</span>
               <span>Semester 1</span>
@@ -83,9 +56,15 @@ export default function Hero({ onNavigate }: HeroProps) {
             </h1>
 
             {/* Subheadline verbatim from prompt */}
-            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-6 max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-4 max-w-2xl">
               Mahasiswa Sistem Informasi yang sedang belajar, berkembang, dan mengeksplorasi dunia teknologi digital.
             </p>
+
+            {/* Personal Motto from Official Photo */}
+            <div className="flex items-center gap-2.5 text-xs sm:text-sm text-sky-300 italic mb-6 bg-slate-900/60 border border-sky-500/20 px-3.5 py-2 rounded-xl">
+              <Quote className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+              <span>"{PERSONAL_INFO.motto}"</span>
+            </div>
 
             {/* University context strip */}
             <div className="flex items-center gap-3 py-2.5 px-4 bg-slate-800/70 border border-slate-700/60 rounded-xl mb-8 max-w-xl text-xs sm:text-sm text-slate-200">
@@ -115,70 +94,38 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Column: Profile Photo Container & Minimalist Tech Framing */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-xs sm:max-w-sm">
+          {/* Right Column: Permanent Official Photo Container */}
+          <div className="md:col-span-5 flex flex-col items-center justify-center w-full mt-6 md:mt-0">
+            <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm">
               {/* Decorative subtle border frame */}
-              <div className="absolute -inset-1.5 bg-gradient-to-tr from-sky-500/25 via-blue-600/15 to-indigo-500/25 rounded-3xl blur-md" />
+              <div className="absolute -inset-1.5 bg-gradient-to-tr from-sky-500/30 via-blue-600/20 to-indigo-500/30 rounded-3xl blur-md" />
 
               {/* Main Photo Card */}
-              <div className="relative bg-slate-900 border border-slate-700/80 rounded-2xl p-4 shadow-2xl">
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-800 border border-slate-700/50 group">
+              <div className="relative bg-slate-900 border border-slate-700/80 rounded-2xl p-3 sm:p-4 shadow-2xl">
+                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-800 border border-slate-700/60 group shadow-inner">
                   <img
-                    src={profileImg}
-                    alt="Foto Profil Eka Yulita - Mahasiswa Sistem Informasi"
+                    src={PERSONAL_INFO.avatarImage}
+                    alt="Foto Resmi Eka Yulita - Mahasiswa Sistem Informasi UNIKMA Cilacap"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-102"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
                   />
 
-                  {/* Subtle photo overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-
                   {/* Corner status watermark */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 shadow-sm">
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 shadow-md">
                     <span className="font-semibold text-white">Eka Yulita</span>
                     <span className="text-sky-300 font-medium">Semester 1</span>
                   </div>
                 </div>
 
-                {/* Photo replacement control bar (Easy placeholder switch for student) */}
-                <div className="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between gap-2 text-xs">
-                  <input
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={handlePhotoUpload}
-                    accept="image/*"
-                    className="hidden"
-                    id="profile-photo-input"
-                  />
-                  <label
-                    htmlFor="profile-photo-input"
-                    className="flex-1 py-2 px-3 text-[11px] font-medium text-slate-200 hover:text-white bg-slate-800 hover:bg-slate-750 border border-slate-700 rounded-lg text-center cursor-pointer flex items-center justify-center gap-1.5 transition-colors"
-                    title="Ganti foto dengan foto Anda sendiri untuk melihat pratinjau"
-                  >
-                    <Upload className="w-3.5 h-3.5 text-sky-400" />
-                    <span>{isCustomPhoto ? 'Ganti Foto Lagi' : 'Ubah Foto (Pratinjau)'}</span>
-                  </label>
-
-                  {isCustomPhoto && (
-                    <button
-                      type="button"
-                      onClick={handleResetPhoto}
-                      className="py-2 px-3 text-[11px] font-medium text-slate-400 hover:text-slate-200 bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-lg flex items-center gap-1 transition-colors cursor-pointer"
-                      title="Kembalikan ke foto standar"
-                    >
-                      <RotateCcw className="w-3 h-3" />
-                      <span>Reset</span>
-                    </button>
-                  )}
+                {/* Permanent profile badge */}
+                <div className="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 px-1">
+                  <span className="text-[11px] font-medium text-sky-400">
+                    S1 Sistem Informasi
+                  </span>
+                  <span className="text-[11px] text-slate-400">
+                    UNIKMA Cilacap
+                  </span>
                 </div>
-
-                {isCustomPhoto && (
-                  <div className="mt-2 text-[11px] text-emerald-400 flex items-center gap-1.5 justify-center">
-                    <Check className="w-3 h-3" />
-                    <span>Foto kustom aktif dalam pratinjau</span>
-                  </div>
-                )}
               </div>
             </div>
           </div>

@@ -126,7 +126,7 @@ export default function Education({ onNavigateToProject }: EducationProps) {
           </div>
 
           {/* Category Filter with responsive horizontal scroller */}
-          <div className="flex items-center gap-1 p-1 bg-slate-200/80 rounded-xl overflow-x-auto max-w-full">
+          <div className="flex items-center gap-1 p-1 bg-slate-200/80 rounded-xl overflow-x-auto no-scrollbar max-w-full">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -145,7 +145,7 @@ export default function Education({ onNavigateToProject }: EducationProps) {
         </div>
 
         {/* Course Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCourses.map((course) => (
             <div
               key={course.name}

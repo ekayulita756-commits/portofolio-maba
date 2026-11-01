@@ -81,7 +81,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
           </button>
 
           {/* Zone 2: 6 concise single-line text links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
+          <nav className="hidden md:flex items-center gap-3 lg:gap-6 xl:gap-8 text-xs lg:text-sm font-medium text-slate-300">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -109,7 +109,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
             <button
               type="button"
               onClick={() => handleNavClick('kontak')}
-              className="px-4 py-2.5 text-xs font-semibold text-slate-950 bg-sky-400 hover:bg-sky-300 active:bg-sky-500 rounded-xl transition-all duration-150 whitespace-nowrap shrink-0 shadow-sm flex items-center gap-1.5 cursor-pointer hover:shadow-sky-500/20 hover:shadow-md"
+              className="px-3 lg:px-4 py-2 lg:py-2.5 text-xs font-semibold text-slate-950 bg-sky-400 hover:bg-sky-300 active:bg-sky-500 rounded-xl transition-all duration-150 whitespace-nowrap shrink-0 shadow-sm flex items-center gap-1.5 cursor-pointer hover:shadow-sky-500/20 hover:shadow-md"
             >
               <span>Hubungi Saya</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

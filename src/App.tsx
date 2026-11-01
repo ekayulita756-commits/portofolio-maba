@@ -21,7 +21,14 @@ export default function App() {
   };
 
   useEffect(() => {
-    const sectionIds = ['beranda', 'tentang-saya', 'keahlian', 'proyek', 'pendidikan', 'kontak'];
+    const sectionIds = [
+      'beranda',
+      'tentang-saya',
+      'keahlian',
+      'proyek',
+      'pendidikan',
+      'kontak',
+    ];
     const handleScroll = () => {
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
         setActiveSection('kontak');

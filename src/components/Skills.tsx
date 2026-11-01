@@ -44,7 +44,7 @@ export default function Skills() {
           </div>
 
           {/* Interactive filter tabs (responsive horizontal layout) */}
-          <div className="flex items-center gap-1 p-1 bg-slate-200/80 rounded-xl overflow-x-auto max-w-full">
+          <div className="flex items-center gap-1 p-1 bg-slate-200/80 rounded-xl overflow-x-auto no-scrollbar max-w-full">
             {(['Semua', 'Produktivitas', 'Desain', 'Keterampilan Pribadi'] as const).map(
               (category) => (
                 <button
